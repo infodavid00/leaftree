@@ -101,3 +101,55 @@ body {
 #openBtn:hover {
       text-decoration: underline;
 }
+#form-container {
+      width:  90%;
+      height:  80vh;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #f9f9f9;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      gap: 1em;
+      transition: 0.1s;
+}
+.form-input {
+      width: 90%;
+      border-radius: 12px;
+      border: none;
+      padding: 13px;
+      border: 1px solid #ccc;
+      background-color: white;
+      font-family: "regular";
+      font-size: 17px;
+      outline: none;
+}
+.form-input:hover {
+      border: 2px solid #ccc;
+}
+#form-btn {
+      width: 90%;
+      border-radius: 12px;
+      border: none;
+      padding: 15px;
+      font-family: "bold";
+      font-size: 11px;
+      color: white;
+      outline: none;
+      background-color: #007AFF;
+}
+#form-btn:hover {
+      text-decoration: underline;
+}
+
+@media (min-width: 760px) {
+#form-container {
+      width: 30%;
+      height: 70vh;
+      }
+}
