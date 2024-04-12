@@ -5,7 +5,7 @@ import TabletscreenSrc from "../assets/TabletLT.mp4"
 import LaptopscreenSrc from "../assets/LaptopLT.mp4"
 import MobilescreenSrc from "../assets/MobileLT.mp4"
 import "../App.css"
-
+ 
 function determineSrc(type) {
  return (
  type === "w" ? widescreenSrc :

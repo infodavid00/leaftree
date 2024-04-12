@@ -54,7 +54,7 @@ body {
       text-decoration: none;
       color: #a5c989;
       font-weight: bold;
-      font-size: 1vw;
+      font-size: 12px;
       font-family: "bold";
 }
 .menu-items-link:hover {
@@ -103,7 +103,7 @@ body {
 }
 #form-container {
       width:  90%;
-      height:  80vh;
+      height:  20vh;
       position: absolute;
       left: 50%;
       top: 50%;
@@ -150,6 +150,22 @@ body {
 @media (min-width: 760px) {
 #form-container {
       width: 30%;
-      height: 70vh;
+      height: 25vh;
+}
+.menu-items-link {
+      font-size: 13px;
+}
+}
+@media (max-width: 480px) {
+      .menu-items-link {
+            font-size: 10px;
       }
+}
+@media (max-width: 370px) {
+.menu-items-link {
+      font-size: 7px;
+}
+.logo {
+      width: 60px;
+}
 }
