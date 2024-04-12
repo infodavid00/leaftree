@@ -36,9 +36,11 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <video autoPlay muted loop id="background-video">
-        <source src={determineSrc(determineParams())} type="video/mp4" />
-      </video>
+      <div id="HomescreeVideoContainer">
+        <video id="HomescreenVideo" autoPlay muted loop>
+            <source src={determineSrc(determineParams())} type="video/mp4" />
+        </video>
+      </div>
     </>
   )
 }
