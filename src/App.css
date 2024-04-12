@@ -129,6 +129,9 @@ body {
       font-size: 17px;
       outline: none;
 }
+.form-input-new {
+      width: 100%;
+}
 .form-input:hover {
       border: 2px solid #ccc;
 }
@@ -154,6 +157,9 @@ body {
 }
 .menu-items-link {
       font-size: 18px;
+}
+.menu-items {
+      gap: 3em;
 }
 }
 @media (max-width: 480px) {

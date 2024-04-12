@@ -15,55 +15,81 @@ function determineSrc(type) {
  )
 }
 
-function Form() {
-  const [pageNumber, setPageNumber] = useState(1)
-  const [fullName, setFullName] = useState('');
+function Form1({fullName, setFullName, setFormTo}) {
+  const handleInputChange = (e) => {
+    setFullName(e.target.value);
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    fullName ? setFormTo(2) : '';
+  }
+  return (
+    <form onSubmit={handleSubmit}>
+     <input 
+        type="text" 
+        className="form-input form-input-new" 
+        placeholder="Enter your Full Name" 
+        value={fullName} 
+        onChange={(e) => handleInputChange(e)}
+    /> 
+    </form>
+  )
+}
+
+function Form2({email, setEmail, setFormTo}) {
+  const handleInputChange = (e) => {
+    setEmail(e.target.value);
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    validator.isEmail(email) ? setFormTo(3) : '';
+  }
+  return (
+    <form onSubmit={handleSubmit}>
+     <input 
+        type="text" 
+        className="form-input form-input-new" 
+        placeholder="Enter your Email" 
+        value={email} 
+        onChange={(e) => handleInputChange(e)}
+    /> 
+    </form>
+  )
+}
+
+function Form3({referral, setReferral, Payload}) {
+  const handleInputChange = (e) => {
+    setReferral(e.target.value);
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    referral ? console.log(Payload) : '';
+    window.location.href = "/"
+  }
+  return (
+    <form onSubmit={handleSubmit}>
+     <input 
+        type="text" 
+        className="form-input form-input-new" 
+        placeholder="How did you hear about LeafTree?" 
+        value={referral} 
+        onChange={(e) => handleInputChange(e)}
+    /> 
+    </form>
+  )
+}
+
+
+export default function Principle() {
+  const GetScreenWidth = window.innerWidth;
+  const [fullName, setFullName] = useState(''); 
   const [email, setEmail] = useState('');
   const [referral, setReferral] = useState('');
-  const handleInputChange = (e, setter) => {
-    setter(e.target.value);
-  }
   const Payload = {
     fullName,
     email,
     referral
   }
-  const handleSubmit = () => {
-    console.log(Payload)
-  }
-  return (
-    <div id="form-container">
-      <>
-        {
-          pageNumber === 1 ? <input type="text" className="form-input" placeholder="Enter your Full Name" value={fullName} onChange={(e) => handleInputChange(e, setFullName)} /> :
-          pageNumber === 2 ? <input type="email" className="form-input" placeholder="Enter your Email" value={email} onChange={(e) => handleInputChange(e, setEmail)} /> :
-          pageNumber === 3 ? <input type="text" className="form-input" placeholder="How did you hear about LeafTree?" value={referral} onChange={(e) => handleInputChange(e, setReferral)} />
-          : ""
-        }
-        
-        <button id="form-btn"
-        style={{opacity: 
-          pageNumber === 1 && fullName || 
-          pageNumber === 2 && validator.isEmail(email) ||
-          pageNumber === 3 && referral  ? 1 : 0.5}}
-        onClick={() => pageNumber === 3 ? handleSubmit() : setPageNumber(pageNumber + 1)}
-        disabled={
-          pageNumber === 1 && fullName || 
-          pageNumber === 2 && validator.isEmail(email) ||
-          pageNumber === 3 && referral ? false : true
-        }>{pageNumber === 3 ? 'Request Presentation':'Enter'}</button>
-        {/* <button id="form-btn" 
-        onClick={()=> window.location.href = "/principle"}
-        style={{
-           background: "#f9f9f9", border: "1px solid #ccc" , color: "black"
-        }}>Go Back</button> */}
-    </>
-    </div>
-  )
-}
-
-export default function Principle() {
-  const GetScreenWidth = window.innerWidth;
 
   const determineParams = ()=> {
     if (GetScreenWidth <= 480) {
@@ -76,28 +102,45 @@ export default function Principle() {
        return "w"
     }
   }
-
   const [onForm, setonForm] = useState(false)
+  const [formOn, setFormOn] = useState(1)
   return (
     <>
       <Nav />
-      {onForm ? <Form /> : 
-       <>
        <div id="openBtnCont"  style={{
           bottom: GetScreenWidth >= 1260  && 
           GetScreenWidth <= 1487 === true ?
           "13%" : "8%"
         }}>
-      <button id="openBtn" onClick={()=> setonForm(true)}>
-        Request Form</button>
+      {!onForm ?
+      <button id="openBtn" onClick={()=> setonForm(true)}>Request Presentation</button> :
+      <>
+      { 
+       formOn === 1 ? 
+         <Form1 fullName={fullName}    
+                setFullName={setFullName} 
+                setFormTo={setFormOn} 
+        /> :
+      formOn === 2 ?
+         <Form2 email={email}    
+                setEmail={setEmail} 
+                setFormTo={setFormOn} 
+        /> :
+      formOn === 3 ? 
+         <Form3 referral={referral}    
+                setReferral={setReferral} 
+                Payload={Payload}
+        /> :
+        ""
+      }
+      </>
+      }
       </div>
       <div id="HomescreeVideoContainer">
         <video id="HomescreenVideo" autoPlay muted loop>
             <source src={determineSrc(determineParams())} type="video/mp4" />
         </video>
       </div> 
-      </>
-    } 
     </>
   )
 }
