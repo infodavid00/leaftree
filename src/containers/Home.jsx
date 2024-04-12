@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <video autoPlay muted loop id="background-video">
+      <video autoPlay muted loop id="background-video" playsInline>
         <source src={determineSrc(determineParams())} type="video/mp4" />
       </video>
     </>
