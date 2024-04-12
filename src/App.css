@@ -48,7 +48,7 @@ body {
       justify-content: space-between;
       align-items: center;
       gap: 1em;
-      margin-right: 1em;
+      margin-right: 2em;
 }
 .menu-items-link {
       text-decoration: none;
@@ -160,6 +160,7 @@ body {
 }
 .menu-items {
       gap: 3em;
+      margin-right: 3em;
 }
 }
 @media (max-width: 480px) {
