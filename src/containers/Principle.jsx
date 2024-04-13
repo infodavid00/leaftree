@@ -66,7 +66,7 @@ function Form3({referral, setReferral, Payload}) {
     event.preventDefault();
     referral ? console.log(Payload) : '';
     setOnsnack(true)
-    setTimeout(()=> window.location.href = "/", 2000)
+    setTimeout(()=> window.location.href = "/", 8000)
   }
   return (
     <>
@@ -86,7 +86,8 @@ function Form3({referral, setReferral, Payload}) {
         type="text" 
         id="popup"
         disabled={true}
-        style={{color:"white"}}
+        style={{color:"white"}}    
+        // id={"openBtn"}
         className="form-input form-input-new" 
         placeholder="Your information has been submitted." 
     />
@@ -129,7 +130,7 @@ export default function Principle() {
           "13%" : "8%"
         }}>
       {!onForm ?
-      <button id="openBtn" onClick={()=> setonForm(true)}>Request Presentation</button> :
+      <button id="openBtn" className="form-input form-input-new" onClick={()=> setonForm(true)}>Request Presentation</button> :
       <>
       { 
        formOn === 1 ? 
