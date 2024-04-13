@@ -230,6 +230,8 @@ html {
 }
 #blur p {
       font-family: "regular";
+      padding: 20px;
+      text-align: center;
 }
 
 
@@ -239,8 +241,14 @@ html {
       }
 }
 
-@media screen and (orientation: landscape) and (max-width: 480px) {
+@media screen and (orientation: landscape) {
       #blur {
             display: flex;
+      }
+}
+
+@media screen and (max-width: 480px)  {
+      #blur {
+            display: none;
       }
 }
