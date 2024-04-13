@@ -58,15 +58,20 @@ function Form2({email, setEmail, setFormTo}) {
 }
 
 function Form3({referral, setReferral, Payload}) {
+  const [onSnack, setOnsnack] = useState(false)
   const handleInputChange = (e) => {
     setReferral(e.target.value);
   }
   const handleSubmit = (event) => {
     event.preventDefault();
     referral ? console.log(Payload) : '';
-    window.location.href = "/"
+    setOnsnack(true)
+    setTimeout(()=> window.location.href = "/", 2000)
   }
   return (
+    <>
+    { !onSnack ?
+    <>    
     <form onSubmit={handleSubmit}>
      <input 
         type="text" 
@@ -76,6 +81,17 @@ function Form3({referral, setReferral, Payload}) {
         onChange={(e) => handleInputChange(e)}
     /> 
     </form>
+    </> : 
+     <input 
+        type="text" 
+        id="popup"
+        disabled={true}
+        style={{color:"white"}}
+        className="form-input form-input-new" 
+        placeholder="Your information has been submitted." 
+    />
+   }
+   </>
   )
 }
 

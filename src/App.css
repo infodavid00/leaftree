@@ -149,11 +149,24 @@ body {
 #form-btn:hover {
       text-decoration: underline;
 }
+#popup {
+      width: 90%;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.2);
+      text-align: center;
+}
+#popup::placeholder {
+      color: white;
+      font-family: "regular";
+}
 
 @media (min-width: 760px) {
 #form-container {
       width: 30%;
       height: 29vh;
+}
+#popup {
+      width: 33%;
 }
 .menu-items-link {
       font-size: 18px;
