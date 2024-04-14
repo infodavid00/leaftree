@@ -241,14 +241,7 @@ html {
       }
 }
 
-@media (min-width: 480px) {
-      #blur {
-            display: none;
-      }
-}
-
-/* Display the element with ID "blur" as flex on mobile landscape mode */
-@media screen and (max-width: 480px) and (orientation: landscape) {
+@media screen and (orientation: landscape) {
       #blur {
             display: flex;
       }

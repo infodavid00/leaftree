@@ -153,6 +153,9 @@ export default function Principle() {
       </>
       }
       </div>
+       {GetScreenWidth <= 480 && <div id="blur">
+        <p>The site can only be viewed in portrait mode. Please tilt your phone</p>
+      </div>}
       <div id="HomescreeVideoContainer">
         <video id="HomescreenVideo" autoPlay muted loop>
             <source src={determineSrc(determineParams())} type="video/mp4" />
